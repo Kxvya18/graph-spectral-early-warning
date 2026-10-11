@@ -1,0 +1,56 @@
+{
+  "protocol_version": "chbmit-v3.0-ml",
+  "protocol_locked_on": "2026-08-04",
+  "seed": 20260804,
+  "base_url": "https://physionet.org/files/chbmit/1.0.0",
+  "subjects": [
+    "chb01", "chb02", "chb03", "chb04", "chb05", "chb06",
+    "chb07", "chb08", "chb09", "chb10", "chb11", "chb12",
+    "chb13", "chb14", "chb15", "chb16", "chb17", "chb18",
+    "chb19", "chb20", "chb21", "chb22", "chb23", "chb24"
+  ],
+  "all_seizure_records": true,
+  "include_immediate_predecessor_for_seizure_context": true,
+  "nonseizure_records_per_subject": 6,
+  "minimum_seizure_records_for_patient_specific_cv": 3,
+  "data_dir": "data/chbmit_v3_locked",
+  "output_dir": "results/chbmit_v3_ml",
+  "epoch_seconds": 2.0,
+  "window_epochs": 60,
+  "stride_epochs": 5,
+  "trend_span_windows": 8,
+  "trailing_smooth_windows": 3,
+  "seizure_prediction_horizon_seconds": 300,
+  "seizure_occurrence_period_seconds": 1800,
+  "minimum_interictal_distance_seconds": 14400,
+  "graph_top_k": 4,
+  "graph_fit_minimum_epochs": 5120,
+  "graph_validation_minimum_epochs": 640,
+  "graph_fit_ridge_fraction": 0.01,
+  "graph_perturbation_strength": 0.20,
+  "isolated_mode_minimum_rho_gap": 0.10,
+  "alarm_training_quantile": 0.99,
+  "minimum_common_channels": 16,
+  "bandpass_hz": [0.5, 40.0],
+  "notch_hz": 60.0,
+  "feature": "log_line_length",
+  "primary_method": "GraphDyn_Raw",
+  "primary_comparator": "NodeMax",
+  "ml_models": {
+    "ML_NoGraph": ["NodeMax", "NodeAvg", "PCA", "Energy"],
+    "ML_GraphIncremental": [
+      "NodeMax", "NodeAvg", "PCA", "Energy", "GraphDyn_Raw",
+      "GSEWS_Level", "GraphSmooth", "EdgeCorr", "ModalGap"
+    ]
+  },
+  "ml_hyperparameters": [
+    {"C": 0.05, "l1_ratio": 0.0},
+    {"C": 0.10, "l1_ratio": 0.5},
+    {"C": 1.00, "l1_ratio": 0.5},
+    {"C": 1.00, "l1_ratio": 1.0}
+  ],
+  "primary_metric": "subject_clustered_auc_difference_GraphDyn_Raw_vs_NodeMax",
+  "ml_secondary_metric": "subject_clustered_auc_difference_ML_GraphIncremental_vs_ML_NoGraph",
+  "locked_preictal_definition": "SOP=30 minutes ending at SPH=5 minutes before onset",
+  "notes": "Scaling, graph fitting, graph validation, score calibration, ML feature scaling, hyperparameter selection, and thresholds are restricted to outer-training data. Exact localization is not claimed unless the held-out modal rho gap exceeds 0.10."
+}

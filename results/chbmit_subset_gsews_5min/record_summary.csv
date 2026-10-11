@@ -1,0 +1,3 @@
+subject,record,status,n_channels,n_epochs,n_seizures
+chb01,chb01_03,ok,294,1800,1
+chb01,chb01_04,ok,141,1800,1

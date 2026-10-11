@@ -1,0 +1,55 @@
+# Graph-aligned recovery-rate synthetic study
+
+**Frozen mechanistic gate: PASS.**
+
+A failure is retained as a scientific result and does not authorize
+post-hoc changes to the frozen primary gate.
+
+## Configuration
+
+```json
+{
+  "protocol_version": "recovery-phenotype-synthetic-1.0",
+  "seed": 20260809,
+  "n_nodes": 16,
+  "n_seeds_per_condition": 100,
+  "graphs": [
+    "ring",
+    "small_world",
+    "modular",
+    "scale_free"
+  ],
+  "scenarios": [
+    "aligned",
+    "heterogeneous_noise",
+    "non_graph_slowing",
+    "common_mode_artifact",
+    "localized_instability"
+  ],
+  "baseline_length": 1400,
+  "ramp_length": 800,
+  "window": 160,
+  "stride": 20,
+  "lag_steps": 1,
+  "ridge_fraction": 0.05,
+  "trailing_smooth": 3,
+  "isolated_gap": 0.1,
+  "low_frequency_fraction": 0.25,
+  "baseline_guard": 160,
+  "prediction_window": 320,
+  "prediction_horizon": 80,
+  "noise_sigma": 0.2,
+  "critical_baseline_rho": 0.72,
+  "heterogeneous_noise_ratio": 4.0,
+  "graph_perturbation": 0.2,
+  "bootstrap_replicates": 10000,
+  "mechanistic_gate": {
+    "minimum_aligned_phenotype_auc": 0.75,
+    "minimum_heterogeneous_phenotype_auc": 0.7,
+    "minimum_mode_recovery": 0.8,
+    "minimum_true_alignment_advantage": 0.05,
+    "maximum_falsification_phenotype_auc": 0.65
+  },
+  "output_dir": "results/recovery_phenotype_synthetic"
+}
+```

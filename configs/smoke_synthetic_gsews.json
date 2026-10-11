@@ -1,0 +1,14 @@
+{
+  "seed": 17,
+  "n_nodes": 32,
+  "n_steps": 1200,
+  "dt": 0.02,
+  "transition_step": 960,
+  "window": 120,
+  "stride": 30,
+  "noise_sigma": 0.20,
+  "n_trials": 3,
+  "graphs": ["ring", "modular"],
+  "models": ["modal_ou", "fhn_reduced"],
+  "output_dir": "results/smoke_synthetic_gsews"
+}

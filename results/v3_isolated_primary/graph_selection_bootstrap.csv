@@ -1,0 +1,9 @@
+model,regime,graph,graph_selected_mean,graph_selected_ci95_low,graph_selected_ci95_high,true_mse_advantage_over_best_wrong_mean,true_mse_advantage_over_best_wrong_ci95_low,true_mse_advantage_over_best_wrong_ci95_high,n_runs
+linear_var,isolated_mode,modular,0.98,0.95,1.0,5.8247423694461345e-05,5.290537742094809e-05,6.347596588022785e-05,100
+linear_var,isolated_mode,ring,0.98,0.95,1.0,2.9322838451753124e-05,2.5626696871209763e-05,3.3027077560400824e-05,100
+linear_var,isolated_mode,scale_free,0.94,0.89,0.98,3.354679311017038e-05,2.9138570691234217e-05,3.805387371541458e-05,100
+linear_var,isolated_mode,small_world,1.0,1.0,1.0,4.128363629464317e-05,3.703905274059552e-05,4.565189990612998e-05,100
+nonlinear_graph_map,isolated_mode,modular,0.99,0.97,1.0,5.415759046090436e-05,4.8591208017685674e-05,5.978086801390047e-05,100
+nonlinear_graph_map,isolated_mode,ring,0.97,0.93,1.0,3.3184164683744546e-05,2.9173557283970588e-05,3.72107323412092e-05,100
+nonlinear_graph_map,isolated_mode,scale_free,0.96,0.92,0.99,3.424990665810375e-05,2.955985937907617e-05,3.919301802486433e-05,100
+nonlinear_graph_map,isolated_mode,small_world,0.99,0.97,1.0,4.292508155550254e-05,3.902287238200765e-05,4.690963343842511e-05,100

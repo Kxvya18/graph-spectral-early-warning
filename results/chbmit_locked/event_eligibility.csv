@@ -1,0 +1,4 @@
+subject,record,event_index,onset_seconds,offset_seconds,context_record,context_available,available_history_seconds,required_history_seconds,prior_seizure_overlap,eligible,exclusion_reason
+chb01,chb01_03,0,2996.0,3036.0,chb01_02,False,2996.0,2220.0,False,True,
+chb01,chb01_04,0,1467.0,1494.0,chb01_03,True,5067.0,2220.0,True,False,preceding_seizure_overlaps_preictal_interval
+chb01,chb01_15,0,1732.0,1772.0,chb01_14,False,1732.0,2220.0,False,False,locked_context_record_not_downloaded

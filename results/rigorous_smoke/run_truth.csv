@@ -1,0 +1,9 @@
+run_id,graph,model,seed,critical_mode,critical_eigenvalue,spectral_center
+graph_commuting_ou:ring:0:1571108490,ring,graph_commuting_ou,1571108490,5,2.537193787539135,0.35
+graph_commuting_ou:ring:1:480164628,ring,graph_commuting_ou,480164628,5,2.5618470190929545,0.35
+graph_commuting_ou:small_world:0:1174453063,small_world,graph_commuting_ou,1174453063,7,2.6079151386904456,0.35
+graph_commuting_ou:small_world:1:197204134,small_world,graph_commuting_ou,197204134,5,2.3471757427423277,0.35
+graph_pattern_normal_form:ring:0:1393390384,ring,graph_pattern_normal_form,1393390384,5,2.5563099392043482,0.35
+graph_pattern_normal_form:ring:1:1358990260,ring,graph_pattern_normal_form,1358990260,5,2.599801299922295,0.35
+graph_pattern_normal_form:small_world:0:822560579,small_world,graph_pattern_normal_form,822560579,7,2.7291041138630834,0.35
+graph_pattern_normal_form:small_world:1:485145305,small_world,graph_pattern_normal_form,485145305,6,2.5612889654612867,0.35

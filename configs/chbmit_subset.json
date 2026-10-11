@@ -1,0 +1,18 @@
+{
+  "seed": 101,
+  "base_url": "https://physionet.org/files/chbmit/1.0.0",
+  "subjects": ["chb01"],
+  "max_seizure_records_per_subject": 6,
+  "max_nonseizure_records_per_subject": 4,
+  "data_dir": "data/chbmit_subset",
+  "output_dir": "results/chbmit_subset_gsews",
+  "epoch_seconds": 2.0,
+  "window_epochs": 60,
+  "stride_epochs": 5,
+  "preictal_seconds": 900,
+  "early_baseline_seconds": 900,
+  "min_channels": 16,
+  "graph_top_k": 4
+  ,
+  "feature_set": "line_length"
+}

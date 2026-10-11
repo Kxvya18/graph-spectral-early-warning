@@ -1,0 +1,14 @@
+{
+  "seed": 73,
+  "n_nodes": 48,
+  "n_steps": 1800,
+  "dt": 0.02,
+  "transition_step": 1440,
+  "window": 160,
+  "stride": 20,
+  "noise_sigma": 0.18,
+  "n_trials": 8,
+  "graphs": ["ring", "small_world", "modular", "scale_free"],
+  "models": ["fhn_reduced"],
+  "output_dir": "results/nonlinear_physiology_gsews"
+}

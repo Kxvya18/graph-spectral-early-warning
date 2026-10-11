@@ -1,0 +1,22 @@
+{
+  "protocol_version": "identifiability-v1.1-boundary",
+  "seed": 20260804,
+  "graphs": ["ring", "small_world", "modular", "scale_free"],
+  "dimensions": [48],
+  "critical_gaps": [0.10, 0.15],
+  "train_lengths": [2560, 5120],
+  "observation_noise_ratios": [0.0, 0.5],
+  "n_seeds_per_condition": 100,
+  "burnin": 500,
+  "test_length": 640,
+  "spectral_center": 0.35,
+  "ridge_fraction": 0.01,
+  "graph_perturbation": 0.20,
+  "bootstrap_replicates": 4000,
+  "mechanistic_gate": {
+    "minimum_graph_selection_ci_low": 0.80,
+    "minimum_mode_recovery_ci_low": 0.80,
+    "minimum_vector_cosine_ci_low": 0.80
+  },
+  "output_dir": "results/identifiability_boundary"
+}

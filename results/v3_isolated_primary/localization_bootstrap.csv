@@ -1,0 +1,13 @@
+model,regime,prediction_horizon,method,n_runs,interval_mode_correct_mean,interval_mode_correct_ci95_low,interval_mode_correct_ci95_high,localization_corr_mean,localization_corr_ci95_low,localization_corr_ci95_high,interval_subspace_overlap_mean,interval_subspace_overlap_ci95_low,interval_subspace_overlap_ci95_high,interval_band_recovery_mean,interval_band_recovery_ci95_low,interval_band_recovery_ci95_high
+linear_var,isolated_mode,160,GraphDyn_Level,400,1.0,1.0,1.0,1.0,1.0,1.0,0.9999999999999999,0.9999999999999997,1.0,1.0,1.0,1.0
+linear_var,isolated_mode,160,GraphDyn_Raw,400,1.0,1.0,1.0,1.0,1.0,1.0,0.9999999999999999,0.9999999999999997,1.0,1.0,1.0,1.0
+linear_var,isolated_mode,360,GraphDyn_Level,400,1.0,1.0,1.0,1.0,1.0,1.0,0.9999999999999999,0.9999999999999997,1.0,1.0,1.0,1.0
+linear_var,isolated_mode,360,GraphDyn_Raw,400,1.0,1.0,1.0,1.0,1.0,1.0,0.9999999999999999,0.9999999999999997,1.0,1.0,1.0,1.0
+linear_var,isolated_mode,560,GraphDyn_Level,400,1.0,1.0,1.0,1.0,1.0,1.0,0.9999999999999999,0.9999999999999997,1.0,1.0,1.0,1.0
+linear_var,isolated_mode,560,GraphDyn_Raw,400,1.0,1.0,1.0,1.0,1.0,1.0,0.9999999999999999,0.9999999999999997,1.0,1.0,1.0,1.0
+nonlinear_graph_map,isolated_mode,160,GraphDyn_Level,400,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.9999999999999999,1.0000000000000002,1.0,1.0,1.0
+nonlinear_graph_map,isolated_mode,160,GraphDyn_Raw,400,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.9999999999999999,1.0000000000000002,1.0,1.0,1.0
+nonlinear_graph_map,isolated_mode,360,GraphDyn_Level,400,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.9999999999999999,1.0000000000000002,1.0,1.0,1.0
+nonlinear_graph_map,isolated_mode,360,GraphDyn_Raw,400,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.9999999999999999,1.0000000000000002,1.0,1.0,1.0
+nonlinear_graph_map,isolated_mode,560,GraphDyn_Level,400,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.9999999999999999,1.0000000000000002,1.0,1.0,1.0
+nonlinear_graph_map,isolated_mode,560,GraphDyn_Raw,400,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.9999999999999999,1.0000000000000002,1.0,1.0,1.0

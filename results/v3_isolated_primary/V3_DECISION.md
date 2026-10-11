@@ -1,0 +1,197 @@
+# Version-3 isolated-mode confirmatory decision
+
+**Decision: the nonlinear isolated-mode model passes the strict gate. The linear isolated-mode model passes the core graph-specificity gate but not the prespecified strict all-controls gate.**
+
+The conclusion is restricted to an identifiable isolated critical mode. It does not extend to the near-degenerate spectral-band regime, which failed the preceding pilot.
+
+## Design
+
+- 100 independent seeds per graph family and model.
+- Four graph families and 800 total simulations.
+- 5,120 stationary samples for graph-dynamic fitting.
+- An independent 640-sample segment for graph selection.
+- The graph basis was frozen before the transition ramp.
+- Identity, random, permuted, and perturbed graphs received matched processing.
+- Three prespecified prediction horizons and 10,000 paired bootstrap replicates.
+
+## Gate
+
+model,graph_selection,auc_vs_node_identity_random_permuted,auc_vs_perturbed_graph_strict,exact_mode_recovery,node_localization,core_mechanistic_pass,strict_all_controls_pass,minimum_graph_selection_ci_low,minimum_auc_difference_ci_low,minimum_mode_recovery_ci_low,minimum_localization_ci_low
+linear_var,True,True,False,True,True,True,False,0.89,-0.0013839622641509568,1.0,1.0
+nonlinear_graph_map,True,True,True,True,True,True,True,0.92,0.0020119496855345877,1.0,1.0
+
+## Held-out graph selection
+
+model,regime,graph,graph_selected_mean,graph_selected_ci95_low,graph_selected_ci95_high,true_mse_advantage_over_best_wrong_mean,true_mse_advantage_over_best_wrong_ci95_low,true_mse_advantage_over_best_wrong_ci95_high,n_runs
+linear_var,isolated_mode,modular,0.98,0.95,1.0,5.8247423694461345e-05,5.290537742094809e-05,6.347596588022785e-05,100
+linear_var,isolated_mode,ring,0.98,0.95,1.0,2.9322838451753124e-05,2.5626696871209763e-05,3.3027077560400824e-05,100
+linear_var,isolated_mode,scale_free,0.94,0.89,0.98,3.354679311017038e-05,2.9138570691234217e-05,3.805387371541458e-05,100
+linear_var,isolated_mode,small_world,1.0,1.0,1.0,4.128363629464317e-05,3.703905274059552e-05,4.565189990612998e-05,100
+nonlinear_graph_map,isolated_mode,modular,0.99,0.97,1.0,5.415759046090436e-05,4.8591208017685674e-05,5.978086801390047e-05,100
+nonlinear_graph_map,isolated_mode,ring,0.97,0.93,1.0,3.3184164683744546e-05,2.9173557283970588e-05,3.72107323412092e-05,100
+nonlinear_graph_map,isolated_mode,scale_free,0.96,0.92,0.99,3.424990665810375e-05,2.955985937907617e-05,3.919301802486433e-05,100
+nonlinear_graph_map,isolated_mode,small_world,0.99,0.97,1.0,4.292508155550254e-05,3.902287238200765e-05,4.690963343842511e-05,100
+
+## AUC summary
+
+index,model,prediction_horizon,method,mean,std
+0,linear_var:isolated_mode,160,GraphDyn_Raw,0.9808207547169812,0.04015918061916723
+1,linear_var:isolated_mode,160,Legacy:NodeMax,0.8814213836477989,0.11054303241407354
+2,linear_var:isolated_mode,360,GraphDyn_Raw,0.9573522012578617,0.07531144195804905
+3,linear_var:isolated_mode,360,Legacy:NodeMax,0.8726477987421384,0.11795267166259887
+4,linear_var:isolated_mode,560,GraphDyn_Raw,0.9260408805031447,0.10999208863603473
+5,linear_var:isolated_mode,560,Legacy:NodeMax,0.8694465408805031,0.11359304767282091
+6,nonlinear_graph_map:isolated_mode,160,GraphDyn_Raw,0.9768050314465409,0.05688698800466741
+7,nonlinear_graph_map:isolated_mode,160,Legacy:NodeMax,0.8817641509433962,0.11001199484245167
+8,nonlinear_graph_map:isolated_mode,360,GraphDyn_Raw,0.9586540880503145,0.07607643367403848
+9,nonlinear_graph_map:isolated_mode,360,Legacy:NodeMax,0.8798333333333334,0.11482117173547587
+10,nonlinear_graph_map:isolated_mode,560,GraphDyn_Raw,0.9212987421383647,0.1105405453018097
+11,nonlinear_graph_map:isolated_mode,560,Legacy:NodeMax,0.8621446540880503,0.11972013479564012
+
+## Within-graph paired AUC comparisons
+
+model,graph,prediction_horizon,reference,comparator,n_pairs,auc_difference_mean,ci95_low,ci95_high
+linear_var:isolated_mode,modular,160,GraphDyn_Raw,Legacy:NodeMax,100,0.09148427672955974,0.06871540880503145,0.11490628930817606
+linear_var:isolated_mode,modular,160,GraphDyn_Raw,IdentityBasis:GraphDyn_Raw,100,0.0912327044025157,0.07123270440251572,0.11194968553459118
+linear_var:isolated_mode,modular,160,GraphDyn_Raw,RandomGraph:GraphDyn_Raw,100,0.12376100628930815,0.10057798742138364,0.14855345911949686
+linear_var:isolated_mode,modular,160,GraphDyn_Raw,PermutedGraph:GraphDyn_Raw,100,0.13216352201257858,0.10667893081761004,0.16020157232704405
+linear_var:isolated_mode,modular,160,GraphDyn_Raw,PerturbedGraph:GraphDyn_Raw,100,0.016591194968553456,0.009572012578616338,0.024503144654088028
+linear_var:isolated_mode,modular,360,GraphDyn_Raw,Legacy:NodeMax,100,0.08666666666666668,0.06074088050314467,0.11277987421383648
+linear_var:isolated_mode,modular,360,GraphDyn_Raw,IdentityBasis:GraphDyn_Raw,100,0.11642767295597486,0.09290440251572331,0.14035251572327043
+linear_var:isolated_mode,modular,360,GraphDyn_Raw,RandomGraph:GraphDyn_Raw,100,0.16192452830188678,0.13371069182389939,0.1907047169811321
+linear_var:isolated_mode,modular,360,GraphDyn_Raw,PermutedGraph:GraphDyn_Raw,100,0.18916981132075475,0.15270345911949687,0.22712169811320748
+linear_var:isolated_mode,modular,360,GraphDyn_Raw,PerturbedGraph:GraphDyn_Raw,100,0.029132075471698125,0.01865377358490566,0.040767610062893096
+linear_var:isolated_mode,modular,560,GraphDyn_Raw,Legacy:NodeMax,100,0.046716981132075466,0.01818867924528302,0.07432735849056604
+linear_var:isolated_mode,modular,560,GraphDyn_Raw,IdentityBasis:GraphDyn_Raw,100,0.15225157232704403,0.12362201257861635,0.1817116352201258
+linear_var:isolated_mode,modular,560,GraphDyn_Raw,RandomGraph:GraphDyn_Raw,100,0.19231446540880504,0.1602893081761006,0.22508207547169812
+linear_var:isolated_mode,modular,560,GraphDyn_Raw,PermutedGraph:GraphDyn_Raw,100,0.22106918238993714,0.18561855345911954,0.25729716981132067
+linear_var:isolated_mode,modular,560,GraphDyn_Raw,PerturbedGraph:GraphDyn_Raw,100,0.04623899371069183,0.02801163522012578,0.065887106918239
+linear_var:isolated_mode,ring,160,GraphDyn_Raw,Legacy:NodeMax,100,0.10301886792452832,0.07886698113207548,0.127698427672956
+linear_var:isolated_mode,ring,160,GraphDyn_Raw,IdentityBasis:GraphDyn_Raw,100,0.18451572327044022,0.1566025157232704,0.21328364779874215
+linear_var:isolated_mode,ring,160,GraphDyn_Raw,RandomGraph:GraphDyn_Raw,100,0.12301886792452828,0.09544654088050315,0.1534220125786163
+linear_var:isolated_mode,ring,160,GraphDyn_Raw,PermutedGraph:GraphDyn_Raw,100,0.1140125786163522,0.09028867924528301,0.13928333333333331
+linear_var:isolated_mode,ring,160,GraphDyn_Raw,PerturbedGraph:GraphDyn_Raw,100,0.002264150943396216,-0.0013839622641509568,0.00640251572327042
+linear_var:isolated_mode,ring,360,GraphDyn_Raw,Legacy:NodeMax,100,0.09801257861635221,0.07201257861635219,0.12452893081761006
+linear_var:isolated_mode,ring,360,GraphDyn_Raw,IdentityBasis:GraphDyn_Raw,100,0.2291194968553459,0.1957735849056604,0.2637361635220127
+linear_var:isolated_mode,ring,360,GraphDyn_Raw,RandomGraph:GraphDyn_Raw,100,0.15656603773584907,0.1229056603773585,0.1920647798742138
+linear_var:isolated_mode,ring,360,GraphDyn_Raw,PermutedGraph:GraphDyn_Raw,100,0.1352578616352201,0.10350911949685535,0.16842861635220122
+linear_var:isolated_mode,ring,360,GraphDyn_Raw,PerturbedGraph:GraphDyn_Raw,100,0.008402515723270448,0.0014084905660377432,0.016968867924528314
+linear_var:isolated_mode,ring,560,GraphDyn_Raw,Legacy:NodeMax,100,0.05446540880503145,0.02448993710691823,0.08344685534591194
+linear_var:isolated_mode,ring,560,GraphDyn_Raw,IdentityBasis:GraphDyn_Raw,100,0.24281761006289312,0.2041254716981132,0.28164874213836477
+linear_var:isolated_mode,ring,560,GraphDyn_Raw,RandomGraph:GraphDyn_Raw,100,0.19188679245283022,0.15718144654088048,0.2278367924528302
+linear_var:isolated_mode,ring,560,GraphDyn_Raw,PermutedGraph:GraphDyn_Raw,100,0.1660503144654088,0.1351682389937107,0.19652893081761003
+linear_var:isolated_mode,ring,560,GraphDyn_Raw,PerturbedGraph:GraphDyn_Raw,100,0.0149811320754717,0.005584591194968542,0.02524528301886791
+linear_var:isolated_mode,scale_free,160,GraphDyn_Raw,Legacy:NodeMax,100,0.10661635220125787,0.0852698113207547,0.12890597484276725
+linear_var:isolated_mode,scale_free,160,GraphDyn_Raw,IdentityBasis:GraphDyn_Raw,100,0.059433962264150965,0.042162578616352225,0.0779245283018868
+linear_var:isolated_mode,scale_free,160,GraphDyn_Raw,RandomGraph:GraphDyn_Raw,100,0.15059119496855347,0.12228899371069184,0.18066761006289309
+linear_var:isolated_mode,scale_free,160,GraphDyn_Raw,PermutedGraph:GraphDyn_Raw,100,0.119937106918239,0.09521981132075469,0.14637767295597484
+linear_var:isolated_mode,scale_free,160,GraphDyn_Raw,PerturbedGraph:GraphDyn_Raw,100,0.01781132075471699,0.008452830188679254,0.02908207547169813
+linear_var:isolated_mode,scale_free,360,GraphDyn_Raw,Legacy:NodeMax,100,0.08056603773584904,0.05953427672955973,0.102138679245283
+linear_var:isolated_mode,scale_free,360,GraphDyn_Raw,IdentityBasis:GraphDyn_Raw,100,0.08255345911949682,0.061056289308176075,0.10544716981132073
+linear_var:isolated_mode,scale_free,360,GraphDyn_Raw,RandomGraph:GraphDyn_Raw,100,0.17701886792452826,0.15159685534591194,0.20366069182389937
+linear_var:isolated_mode,scale_free,360,GraphDyn_Raw,PermutedGraph:GraphDyn_Raw,100,0.1423396226415094,0.11533238993710691,0.17191226415094338
+linear_var:isolated_mode,scale_free,360,GraphDyn_Raw,PerturbedGraph:GraphDyn_Raw,100,0.01733333333333333,0.008566037735849049,0.026893396226415088
+linear_var:isolated_mode,scale_free,560,GraphDyn_Raw,Legacy:NodeMax,100,0.06755974842767296,0.037270125786163524,0.09722138364779871
+linear_var:isolated_mode,scale_free,560,GraphDyn_Raw,IdentityBasis:GraphDyn_Raw,100,0.09729559748427674,0.0689056603773585,0.12666698113207547
+linear_var:isolated_mode,scale_free,560,GraphDyn_Raw,RandomGraph:GraphDyn_Raw,100,0.22052830188679245,0.18531949685534593,0.2566044025157233
+linear_var:isolated_mode,scale_free,560,GraphDyn_Raw,PermutedGraph:GraphDyn_Raw,100,0.2101509433962264,0.17242672955974847,0.24859213836477984
+linear_var:isolated_mode,scale_free,560,GraphDyn_Raw,PerturbedGraph:GraphDyn_Raw,100,0.03176100628930818,0.016591194968553477,0.04857893081761007
+linear_var:isolated_mode,small_world,160,GraphDyn_Raw,Legacy:NodeMax,100,0.09647798742138364,0.07764748427672953,0.11676729559748425
+linear_var:isolated_mode,small_world,160,GraphDyn_Raw,IdentityBasis:GraphDyn_Raw,100,0.10489308176100628,0.0834333333333333,0.12842798742138367
+linear_var:isolated_mode,small_world,160,GraphDyn_Raw,RandomGraph:GraphDyn_Raw,100,0.12826415094339624,0.10606194968553456,0.1510317610062893
+linear_var:isolated_mode,small_world,160,GraphDyn_Raw,PermutedGraph:GraphDyn_Raw,100,0.12038993710691823,0.09642672955974842,0.14562358490566035
+linear_var:isolated_mode,small_world,160,GraphDyn_Raw,PerturbedGraph:GraphDyn_Raw,100,0.011157232704402515,0.005081761006289321,0.01871698113207547
+linear_var:isolated_mode,small_world,360,GraphDyn_Raw,Legacy:NodeMax,100,0.07357232704402515,0.048351886792452815,0.09944779874213835
+linear_var:isolated_mode,small_world,360,GraphDyn_Raw,IdentityBasis:GraphDyn_Raw,100,0.130125786163522,0.10557232704402515,0.15582421383647801
+linear_var:isolated_mode,small_world,360,GraphDyn_Raw,RandomGraph:GraphDyn_Raw,100,0.16280503144654085,0.13369779874213839,0.19217610062893076
+linear_var:isolated_mode,small_world,360,GraphDyn_Raw,PermutedGraph:GraphDyn_Raw,100,0.149811320754717,0.12098018867924527,0.17991383647798742
+linear_var:isolated_mode,small_world,360,GraphDyn_Raw,PerturbedGraph:GraphDyn_Raw,100,0.022893081761006285,0.01316949685534591,0.03382389937106917
+linear_var:isolated_mode,small_world,560,GraphDyn_Raw,Legacy:NodeMax,100,0.05763522012578617,0.03334465408805029,0.08242924528301884
+linear_var:isolated_mode,small_world,560,GraphDyn_Raw,IdentityBasis:GraphDyn_Raw,100,0.17525786163522017,0.14398679245283016,0.20796257861635217
+linear_var:isolated_mode,small_world,560,GraphDyn_Raw,RandomGraph:GraphDyn_Raw,100,0.20520754716981135,0.17178427672955976,0.23908270440251572
+linear_var:isolated_mode,small_world,560,GraphDyn_Raw,PermutedGraph:GraphDyn_Raw,100,0.17212578616352203,0.13771037735849057,0.20675503144654087
+linear_var:isolated_mode,small_world,560,GraphDyn_Raw,PerturbedGraph:GraphDyn_Raw,100,0.026415094339622646,0.014062264150943396,0.04011383647798743
+nonlinear_graph_map:isolated_mode,modular,160,GraphDyn_Raw,Legacy:NodeMax,100,0.08821383647798742,0.06477955974842767,0.11177389937106917
+nonlinear_graph_map:isolated_mode,modular,160,GraphDyn_Raw,IdentityBasis:GraphDyn_Raw,100,0.11810062893081762,0.0909424528301887,0.14913270440251572
+nonlinear_graph_map:isolated_mode,modular,160,GraphDyn_Raw,RandomGraph:GraphDyn_Raw,100,0.1370314465408805,0.10866509433962265,0.16776163522012574
+nonlinear_graph_map:isolated_mode,modular,160,GraphDyn_Raw,PermutedGraph:GraphDyn_Raw,100,0.12665408805031447,0.10036415094339625,0.154188679245283
+nonlinear_graph_map:isolated_mode,modular,160,GraphDyn_Raw,PerturbedGraph:GraphDyn_Raw,100,0.016880503144654092,0.0020119496855345877,0.03158522012578618
+nonlinear_graph_map:isolated_mode,modular,360,GraphDyn_Raw,Legacy:NodeMax,100,0.0860754716981132,0.06349685534591196,0.10913238993710692
+nonlinear_graph_map:isolated_mode,modular,360,GraphDyn_Raw,IdentityBasis:GraphDyn_Raw,100,0.15378616352201258,0.12355911949685533,0.1854606918238994
+nonlinear_graph_map:isolated_mode,modular,360,GraphDyn_Raw,RandomGraph:GraphDyn_Raw,100,0.22149685534591199,0.18401037735849057,0.2581138364779874
+nonlinear_graph_map:isolated_mode,modular,360,GraphDyn_Raw,PermutedGraph:GraphDyn_Raw,100,0.16808805031446541,0.13802484276729562,0.20023930817610064
+nonlinear_graph_map:isolated_mode,modular,360,GraphDyn_Raw,PerturbedGraph:GraphDyn_Raw,100,0.022880503144654077,0.011156603773584904,0.03637798742138363
+nonlinear_graph_map:isolated_mode,modular,560,GraphDyn_Raw,Legacy:NodeMax,100,0.05713207547169812,0.0270682389937107,0.08716981132075471
+nonlinear_graph_map:isolated_mode,modular,560,GraphDyn_Raw,IdentityBasis:GraphDyn_Raw,100,0.1815220125786163,0.14820094339622641,0.21567327044025156
+nonlinear_graph_map:isolated_mode,modular,560,GraphDyn_Raw,RandomGraph:GraphDyn_Raw,100,0.2035471698113208,0.1666534591194968,0.24195283018867922
+nonlinear_graph_map:isolated_mode,modular,560,GraphDyn_Raw,PermutedGraph:GraphDyn_Raw,100,0.1732578616352201,0.141961320754717,0.20434182389937106
+nonlinear_graph_map:isolated_mode,modular,560,GraphDyn_Raw,PerturbedGraph:GraphDyn_Raw,100,0.03540880503144653,0.01747106918238993,0.05459150943396226
+nonlinear_graph_map:isolated_mode,ring,160,GraphDyn_Raw,Legacy:NodeMax,100,0.10130817610062891,0.07871635220125785,0.12475503144654086
+nonlinear_graph_map:isolated_mode,ring,160,GraphDyn_Raw,IdentityBasis:GraphDyn_Raw,100,0.16833962264150945,0.1393330188679245,0.20060408805031443
+nonlinear_graph_map:isolated_mode,ring,160,GraphDyn_Raw,RandomGraph:GraphDyn_Raw,100,0.13739622641509433,0.11121981132075469,0.16518301886792455
+nonlinear_graph_map:isolated_mode,ring,160,GraphDyn_Raw,PermutedGraph:GraphDyn_Raw,100,0.11837735849056602,0.09291761006289304,0.14582484276729557
+nonlinear_graph_map:isolated_mode,ring,160,GraphDyn_Raw,PerturbedGraph:GraphDyn_Raw,100,0.012364779874213845,0.00611320754716982,0.019572327044025166
+nonlinear_graph_map:isolated_mode,ring,360,GraphDyn_Raw,Legacy:NodeMax,100,0.08900628930817608,0.060012578616352216,0.1179122641509434
+nonlinear_graph_map:isolated_mode,ring,360,GraphDyn_Raw,IdentityBasis:GraphDyn_Raw,100,0.22881761006289306,0.19681761006289306,0.2609569182389937
+nonlinear_graph_map:isolated_mode,ring,360,GraphDyn_Raw,RandomGraph:GraphDyn_Raw,100,0.18636477987421388,0.1535342767295597,0.21961037735849057
+nonlinear_graph_map:isolated_mode,ring,360,GraphDyn_Raw,PermutedGraph:GraphDyn_Raw,100,0.16270440251572324,0.1330556603773585,0.1932710691823899
+nonlinear_graph_map:isolated_mode,ring,360,GraphDyn_Raw,PerturbedGraph:GraphDyn_Raw,100,0.019433962264150947,0.01113207547169811,0.029208176100628945
+nonlinear_graph_map:isolated_mode,ring,560,GraphDyn_Raw,Legacy:NodeMax,100,0.06322012578616353,0.0348301886792453,0.0909691823899371
+nonlinear_graph_map:isolated_mode,ring,560,GraphDyn_Raw,IdentityBasis:GraphDyn_Raw,100,0.2570566037735849,0.2213317610062893,0.2937380503144653
+nonlinear_graph_map:isolated_mode,ring,560,GraphDyn_Raw,RandomGraph:GraphDyn_Raw,100,0.19084276729559752,0.1569305031446541,0.22642798742138368
+nonlinear_graph_map:isolated_mode,ring,560,GraphDyn_Raw,PermutedGraph:GraphDyn_Raw,100,0.16544654088050315,0.13243742138364778,0.19924622641509437
+nonlinear_graph_map:isolated_mode,ring,560,GraphDyn_Raw,PerturbedGraph:GraphDyn_Raw,100,0.03164779874213837,0.02147169811320755,0.042817924528301896
+nonlinear_graph_map:isolated_mode,scale_free,160,GraphDyn_Raw,Legacy:NodeMax,100,0.07825157232704402,0.05520723270440251,0.10257955974842764
+nonlinear_graph_map:isolated_mode,scale_free,160,GraphDyn_Raw,IdentityBasis:GraphDyn_Raw,100,0.06162264150943398,0.04359716981132078,0.08120754716981132
+nonlinear_graph_map:isolated_mode,scale_free,160,GraphDyn_Raw,RandomGraph:GraphDyn_Raw,100,0.1359119496855346,0.11138207547169814,0.162377358490566
+nonlinear_graph_map:isolated_mode,scale_free,160,GraphDyn_Raw,PermutedGraph:GraphDyn_Raw,100,0.12539622641509435,0.10186132075471699,0.14945911949685534
+nonlinear_graph_map:isolated_mode,scale_free,160,GraphDyn_Raw,PerturbedGraph:GraphDyn_Raw,100,0.013345911949685539,0.007182389937106923,0.02008899371069182
+nonlinear_graph_map:isolated_mode,scale_free,360,GraphDyn_Raw,Legacy:NodeMax,100,0.05101886792452831,0.029645911949685546,0.07230220125786163
+nonlinear_graph_map:isolated_mode,scale_free,360,GraphDyn_Raw,IdentityBasis:GraphDyn_Raw,100,0.06438993710691823,0.04539591194968552,0.08469213836477986
+nonlinear_graph_map:isolated_mode,scale_free,360,GraphDyn_Raw,RandomGraph:GraphDyn_Raw,100,0.16494339622641507,0.13720723270440252,0.1940761006289308
+nonlinear_graph_map:isolated_mode,scale_free,360,GraphDyn_Raw,PermutedGraph:GraphDyn_Raw,100,0.1567924528301887,0.12890566037735854,0.1849691823899371
+nonlinear_graph_map:isolated_mode,scale_free,360,GraphDyn_Raw,PerturbedGraph:GraphDyn_Raw,100,0.018641509433962256,0.009131761006289303,0.030150943396226405
+nonlinear_graph_map:isolated_mode,scale_free,560,GraphDyn_Raw,Legacy:NodeMax,100,0.05796226415094339,0.029257547169811323,0.0862025157232704
+nonlinear_graph_map:isolated_mode,scale_free,560,GraphDyn_Raw,IdentityBasis:GraphDyn_Raw,100,0.11491823899371069,0.08729465408805032,0.14474276729559746
+nonlinear_graph_map:isolated_mode,scale_free,560,GraphDyn_Raw,RandomGraph:GraphDyn_Raw,100,0.20860377358490567,0.17461540880503143,0.24475471698113208
+nonlinear_graph_map:isolated_mode,scale_free,560,GraphDyn_Raw,PermutedGraph:GraphDyn_Raw,100,0.18812578616352205,0.15271509433962263,0.22592452830188678
+nonlinear_graph_map:isolated_mode,scale_free,560,GraphDyn_Raw,PerturbedGraph:GraphDyn_Raw,100,0.03335849056603772,0.020238993710691818,0.04749716981132075
+nonlinear_graph_map:isolated_mode,small_world,160,GraphDyn_Raw,Legacy:NodeMax,100,0.1123899371069182,0.09060377358490568,0.13500660377358492
+nonlinear_graph_map:isolated_mode,small_world,160,GraphDyn_Raw,IdentityBasis:GraphDyn_Raw,100,0.10929559748427672,0.08432672955974842,0.13598742138364778
+nonlinear_graph_map:isolated_mode,small_world,160,GraphDyn_Raw,RandomGraph:GraphDyn_Raw,100,0.1391446540880503,0.11110628930817609,0.16820283018867924
+nonlinear_graph_map:isolated_mode,small_world,160,GraphDyn_Raw,PermutedGraph:GraphDyn_Raw,100,0.1349308176100629,0.10671635220125784,0.1639625786163522
+nonlinear_graph_map:isolated_mode,small_world,160,GraphDyn_Raw,PerturbedGraph:GraphDyn_Raw,100,0.007811320754716985,0.0028679245283018905,0.01328333333333334
+nonlinear_graph_map:isolated_mode,small_world,360,GraphDyn_Raw,Legacy:NodeMax,100,0.0891823899371069,0.06364716981132075,0.11442798742138363
+nonlinear_graph_map:isolated_mode,small_world,360,GraphDyn_Raw,IdentityBasis:GraphDyn_Raw,100,0.1432201257861635,0.11659119496855347,0.1709308176100629
+nonlinear_graph_map:isolated_mode,small_world,360,GraphDyn_Raw,RandomGraph:GraphDyn_Raw,100,0.1598993710691824,0.13238867924528303,0.1888553459119497
+nonlinear_graph_map:isolated_mode,small_world,360,GraphDyn_Raw,PermutedGraph:GraphDyn_Raw,100,0.1430440251572327,0.11723238993710693,0.17035314465408805
+nonlinear_graph_map:isolated_mode,small_world,360,GraphDyn_Raw,PerturbedGraph:GraphDyn_Raw,100,0.011937106918238993,0.006125786163522018,0.01828930817610062
+nonlinear_graph_map:isolated_mode,small_world,560,GraphDyn_Raw,Legacy:NodeMax,100,0.058301886792452844,0.033106289308176114,0.08342169811320757
+nonlinear_graph_map:isolated_mode,small_world,560,GraphDyn_Raw,IdentityBasis:GraphDyn_Raw,100,0.1741761006289308,0.14496823899371072,0.2056358490566038
+nonlinear_graph_map:isolated_mode,small_world,560,GraphDyn_Raw,RandomGraph:GraphDyn_Raw,100,0.1778238993710692,0.14846415094339627,0.20914528301886795
+nonlinear_graph_map:isolated_mode,small_world,560,GraphDyn_Raw,PermutedGraph:GraphDyn_Raw,100,0.17480503144654086,0.13915723270440256,0.2118116352201258
+nonlinear_graph_map:isolated_mode,small_world,560,GraphDyn_Raw,PerturbedGraph:GraphDyn_Raw,100,0.01672955974842768,0.00584874213836479,0.0289691823899371
+
+## Localization
+
+model,regime,prediction_horizon,method,n_runs,interval_mode_correct_mean,interval_mode_correct_ci95_low,interval_mode_correct_ci95_high,localization_corr_mean,localization_corr_ci95_low,localization_corr_ci95_high,interval_subspace_overlap_mean,interval_subspace_overlap_ci95_low,interval_subspace_overlap_ci95_high,interval_band_recovery_mean,interval_band_recovery_ci95_low,interval_band_recovery_ci95_high
+linear_var,isolated_mode,160,GraphDyn_Level,400,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.9999999999999996,1.0,1.0,1.0,1.0
+linear_var,isolated_mode,160,GraphDyn_Raw,400,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.9999999999999996,1.0,1.0,1.0,1.0
+linear_var,isolated_mode,360,GraphDyn_Level,400,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.9999999999999996,1.0,1.0,1.0,1.0
+linear_var,isolated_mode,360,GraphDyn_Raw,400,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.9999999999999996,1.0,1.0,1.0,1.0
+linear_var,isolated_mode,560,GraphDyn_Level,400,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.9999999999999996,1.0,1.0,1.0,1.0
+linear_var,isolated_mode,560,GraphDyn_Raw,400,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.9999999999999996,1.0,1.0,1.0,1.0
+nonlinear_graph_map,isolated_mode,160,GraphDyn_Level,400,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0000000000000002,1.0,1.0,1.0
+nonlinear_graph_map,isolated_mode,160,GraphDyn_Raw,400,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0000000000000002,1.0,1.0,1.0
+nonlinear_graph_map,isolated_mode,360,GraphDyn_Level,400,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0000000000000002,1.0,1.0,1.0
+nonlinear_graph_map,isolated_mode,360,GraphDyn_Raw,400,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0000000000000002,1.0,1.0,1.0
+nonlinear_graph_map,isolated_mode,560,GraphDyn_Level,400,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0000000000000002,1.0,1.0,1.0
+nonlinear_graph_map,isolated_mode,560,GraphDyn_Raw,400,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0000000000000002,1.0,1.0,1.0
+
+## Claim boundary
+
+Both models beat NodeMax and the identity, random, and permuted bases within every graph family, and both recover the isolated critical mode exactly. The sole strict-gate failure is linear ring at horizon 160 versus the mildly weight-perturbed graph: mean AUC difference 0.0023, 95% interval -0.0014 to 0.0064. This is evidence of robustness to a nearby graph, not evidence that the exact edge weights are uniquely identifiable. Because the frozen strict gate required a positive interval against every control, it must still be reported as a failure rather than reclassified after inspection.
+
+The results support graph-specific transition warning and exact localization when a single graph mode is spectrally isolated and the graph is learned from a sufficiently long stationary history. The strict claim is confirmed for the nonlinear model; the linear result is strong but qualified by local weight-perturbation equivalence. Neither result establishes exact localization for near-degenerate modes or guarantees that clinical EEG contains an isolated, stationary, graph-commuting critical mode.
+
+Machine learning may now be evaluated as an incremental predictive layer using the frozen version-3 features, but it must not broaden this mechanistic claim and must retain graph-free and wrong-graph ablations.

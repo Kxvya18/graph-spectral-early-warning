@@ -1,0 +1,34 @@
+# CHB-MIT Real EEG GSEWS Report
+
+This is real multichannel EEG validation on downloaded CHB-MIT EDF recordings.
+Labels are preictal windows before annotated seizure onset versus early baseline windows from the same record.
+Localization is reported as an interpretable dominant modal pattern, not as ground-truth pathological-region accuracy.
+
+## Method Summary
+
+method,auc_mean,auc_std,lead_mean,false_alarm_mean
+EdgeCorr,0.4832244008714597,0.030810752992877968,331.5,0.0017006802721088435
+Energy,0.4003540305010893,0.10826128332872474,316.5,0.01020408163265306
+GSEWS,0.48888888888888893,0.15051052837020862,330.5,0.015306122448979591
+GraphSmooth,0.5596949891067539,0.0036972903591453335,0.0,0.0
+NodeAvg,0.42116013071895425,0.16333550430349392,326.5,0.011904761904761904
+NodeMax,0.43376906318082786,0.11061060324443159,423.0,0.003401360544217687
+PCA,0.41127450980392155,0.09589846869033238,316.5,0.008503401360544218
+
+## Records
+
+model,method,events
+chb01_03,EdgeCorr,1
+chb01_03,Energy,1
+chb01_03,GSEWS,1
+chb01_03,GraphSmooth,1
+chb01_03,NodeAvg,1
+chb01_03,NodeMax,1
+chb01_03,PCA,1
+chb01_04,EdgeCorr,1
+chb01_04,Energy,1
+chb01_04,GSEWS,1
+chb01_04,GraphSmooth,1
+chb01_04,NodeAvg,1
+chb01_04,NodeMax,1
+chb01_04,PCA,1

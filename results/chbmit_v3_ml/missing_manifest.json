@@ -1,0 +1,192 @@
+[
+  {
+    "subject": "chb01",
+    "record": "chb01_01",
+    "kind": "nonseizure",
+    "relative_path": "chb01/chb01_01.edf",
+    "local_path": "data/chbmit_v3_locked/chb01/chb01_01.edf",
+    "url": "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_01.edf",
+    "seed": 20260804,
+    "protocol_version": "chbmit-v3.0-ml",
+    "config_sha256": "7b35aec94956e78e155e8cadf85b6c4e9404db5aec53cc27c679cd67cf6b389c",
+    "context_for": []
+  },
+  {
+    "subject": "chb01",
+    "record": "chb01_02",
+    "kind": "context",
+    "relative_path": "chb01/chb01_02.edf",
+    "local_path": "data/chbmit_v3_locked/chb01/chb01_02.edf",
+    "url": "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_02.edf",
+    "seed": 20260804,
+    "protocol_version": "chbmit-v3.0-ml",
+    "config_sha256": "7b35aec94956e78e155e8cadf85b6c4e9404db5aec53cc27c679cd67cf6b389c",
+    "context_for": [
+      "chb01/chb01_03.edf"
+    ]
+  },
+  {
+    "subject": "chb01",
+    "record": "chb01_09",
+    "kind": "nonseizure",
+    "relative_path": "chb01/chb01_09.edf",
+    "local_path": "data/chbmit_v3_locked/chb01/chb01_09.edf",
+    "url": "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_09.edf",
+    "seed": 20260804,
+    "protocol_version": "chbmit-v3.0-ml",
+    "config_sha256": "7b35aec94956e78e155e8cadf85b6c4e9404db5aec53cc27c679cd67cf6b389c",
+    "context_for": []
+  },
+  {
+    "subject": "chb01",
+    "record": "chb01_14",
+    "kind": "context",
+    "relative_path": "chb01/chb01_14.edf",
+    "local_path": "data/chbmit_v3_locked/chb01/chb01_14.edf",
+    "url": "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_14.edf",
+    "seed": 20260804,
+    "protocol_version": "chbmit-v3.0-ml",
+    "config_sha256": "7b35aec94956e78e155e8cadf85b6c4e9404db5aec53cc27c679cd67cf6b389c",
+    "context_for": [
+      "chb01/chb01_15.edf"
+    ]
+  },
+  {
+    "subject": "chb01",
+    "record": "chb01_16",
+    "kind": "seizure",
+    "relative_path": "chb01/chb01_16.edf",
+    "local_path": "data/chbmit_v3_locked/chb01/chb01_16.edf",
+    "url": "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_16.edf",
+    "seed": 20260804,
+    "protocol_version": "chbmit-v3.0-ml",
+    "config_sha256": "7b35aec94956e78e155e8cadf85b6c4e9404db5aec53cc27c679cd67cf6b389c",
+    "context_for": []
+  },
+  {
+    "subject": "chb01",
+    "record": "chb01_17",
+    "kind": "context",
+    "relative_path": "chb01/chb01_17.edf",
+    "local_path": "data/chbmit_v3_locked/chb01/chb01_17.edf",
+    "url": "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_17.edf",
+    "seed": 20260804,
+    "protocol_version": "chbmit-v3.0-ml",
+    "config_sha256": "7b35aec94956e78e155e8cadf85b6c4e9404db5aec53cc27c679cd67cf6b389c",
+    "context_for": [
+      "chb01/chb01_18.edf"
+    ]
+  },
+  {
+    "subject": "chb01",
+    "record": "chb01_18",
+    "kind": "seizure",
+    "relative_path": "chb01/chb01_18.edf",
+    "local_path": "data/chbmit_v3_locked/chb01/chb01_18.edf",
+    "url": "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_18.edf",
+    "seed": 20260804,
+    "protocol_version": "chbmit-v3.0-ml",
+    "config_sha256": "7b35aec94956e78e155e8cadf85b6c4e9404db5aec53cc27c679cd67cf6b389c",
+    "context_for": []
+  },
+  {
+    "subject": "chb01",
+    "record": "chb01_19",
+    "kind": "nonseizure",
+    "relative_path": "chb01/chb01_19.edf",
+    "local_path": "data/chbmit_v3_locked/chb01/chb01_19.edf",
+    "url": "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_19.edf",
+    "seed": 20260804,
+    "protocol_version": "chbmit-v3.0-ml",
+    "config_sha256": "7b35aec94956e78e155e8cadf85b6c4e9404db5aec53cc27c679cd67cf6b389c",
+    "context_for": []
+  },
+  {
+    "subject": "chb01",
+    "record": "chb01_20",
+    "kind": "context",
+    "relative_path": "chb01/chb01_20.edf",
+    "local_path": "data/chbmit_v3_locked/chb01/chb01_20.edf",
+    "url": "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_20.edf",
+    "seed": 20260804,
+    "protocol_version": "chbmit-v3.0-ml",
+    "config_sha256": "7b35aec94956e78e155e8cadf85b6c4e9404db5aec53cc27c679cd67cf6b389c",
+    "context_for": [
+      "chb01/chb01_21.edf"
+    ]
+  },
+  {
+    "subject": "chb01",
+    "record": "chb01_21",
+    "kind": "seizure",
+    "relative_path": "chb01/chb01_21.edf",
+    "local_path": "data/chbmit_v3_locked/chb01/chb01_21.edf",
+    "url": "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_21.edf",
+    "seed": 20260804,
+    "protocol_version": "chbmit-v3.0-ml",
+    "config_sha256": "7b35aec94956e78e155e8cadf85b6c4e9404db5aec53cc27c679cd67cf6b389c",
+    "context_for": []
+  },
+  {
+    "subject": "chb01",
+    "record": "chb01_25",
+    "kind": "context",
+    "relative_path": "chb01/chb01_25.edf",
+    "local_path": "data/chbmit_v3_locked/chb01/chb01_25.edf",
+    "url": "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_25.edf",
+    "seed": 20260804,
+    "protocol_version": "chbmit-v3.0-ml",
+    "config_sha256": "7b35aec94956e78e155e8cadf85b6c4e9404db5aec53cc27c679cd67cf6b389c",
+    "context_for": [
+      "chb01/chb01_26.edf"
+    ]
+  },
+  {
+    "subject": "chb01",
+    "record": "chb01_26",
+    "kind": "seizure",
+    "relative_path": "chb01/chb01_26.edf",
+    "local_path": "data/chbmit_v3_locked/chb01/chb01_26.edf",
+    "url": "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_26.edf",
+    "seed": 20260804,
+    "protocol_version": "chbmit-v3.0-ml",
+    "config_sha256": "7b35aec94956e78e155e8cadf85b6c4e9404db5aec53cc27c679cd67cf6b389c",
+    "context_for": []
+  },
+  {
+    "subject": "chb01",
+    "record": "chb01_29",
+    "kind": "nonseizure",
+    "relative_path": "chb01/chb01_29.edf",
+    "local_path": "data/chbmit_v3_locked/chb01/chb01_29.edf",
+    "url": "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_29.edf",
+    "seed": 20260804,
+    "protocol_version": "chbmit-v3.0-ml",
+    "config_sha256": "7b35aec94956e78e155e8cadf85b6c4e9404db5aec53cc27c679cd67cf6b389c",
+    "context_for": []
+  },
+  {
+    "subject": "chb01",
+    "record": "chb01_37",
+    "kind": "nonseizure",
+    "relative_path": "chb01/chb01_37.edf",
+    "local_path": "data/chbmit_v3_locked/chb01/chb01_37.edf",
+    "url": "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_37.edf",
+    "seed": 20260804,
+    "protocol_version": "chbmit-v3.0-ml",
+    "config_sha256": "7b35aec94956e78e155e8cadf85b6c4e9404db5aec53cc27c679cd67cf6b389c",
+    "context_for": []
+  },
+  {
+    "subject": "chb01",
+    "record": "chb01_46",
+    "kind": "nonseizure",
+    "relative_path": "chb01/chb01_46.edf",
+    "local_path": "data/chbmit_v3_locked/chb01/chb01_46.edf",
+    "url": "https://physionet.org/files/chbmit/1.0.0/chb01/chb01_46.edf",
+    "seed": 20260804,
+    "protocol_version": "chbmit-v3.0-ml",
+    "config_sha256": "7b35aec94956e78e155e8cadf85b6c4e9404db5aec53cc27c679cd67cf6b389c",
+    "context_for": []
+  }
+]
