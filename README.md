@@ -79,7 +79,7 @@ locked EEG bridge; it does not itself establish seizure prediction.
 ## Reproduce the corrected synthetic gate
 
 ```bash
-cd "/Users/boolu/Desktop/simulations/ALL PROJECTS/graph_spectral_ews_physiology"
+cd graph-spectral-early-warning
 MPLCONFIGDIR=.matplotlib_cache .venv/bin/python -m unittest discover -s tests -v
 MPLCONFIGDIR=.matplotlib_cache .venv/bin/python src/run_rigorous_synthetic.py \
   --config configs/rigorous_pilot.json
@@ -96,7 +96,7 @@ record. Plan for roughly 15 GB of downloads. The downloader resumes an
 interrupted `.part` file.
 
 ```bash
-cd "/Users/boolu/Desktop/simulations/ALL PROJECTS/graph_spectral_ews_physiology"
+cd graph-spectral-early-warning
 ./run_chbmit_v3_full.sh
 ```
 
